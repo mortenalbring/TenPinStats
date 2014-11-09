@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testTableParser", "testTableParser\testTableParser.csproj", "{D9F2195F-78AE-47E0-AF86-7C690897A216}"
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenPinTableParser", "testTableParser\TenPinTableParser.csproj", "{D9F2195F-78AE-47E0-AF86-7C690897A216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

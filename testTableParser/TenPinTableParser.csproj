@@ -35,7 +35,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ball.cs" />
     <Compile Include="BoundingBox.cs" />
+    <Compile Include="Frame.cs" />
     <Compile Include="PdfXmlItem.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
