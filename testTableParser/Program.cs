@@ -13,21 +13,18 @@ namespace testTableParser
         public static void Main()
         {
 
-
+            //Load document from XML document 
             var xmlDocument = new XmlDocument();
+            xmlDocument.Load("Lane10.xml");
 
-            xmlDocument.Load("bscores.xml");
-
-            var xx = 42;
-
-
-
+           
+            //Find the table corner with the string 'Player'
             var tableCorners = FindString(xmlDocument, "Player");
             tableCorners = tableCorners.OrderByDescending(e => e.BBox.y0).ToList();
 
             foreach (var corner in tableCorners)
             {
-
+                //Find the headers
                 var tableHeaders = FindWithMatchingYCoordinate(xmlDocument, corner.BBox.y0).OrderBy(e => e.BBox.x0).ToList();
 
                 var matchingX = FindWithMatchingXCoordinate(xmlDocument, corner.BBox.x0);
@@ -47,8 +44,12 @@ namespace testTableParser
 
                 players = players.OrderByDescending(e => e.BBox.y0).ToList();
 
+                
+
                 foreach (var player in players)
                 {
+                
+    
 
                     foreach (var header in tableHeaders)
                     {
@@ -58,6 +59,7 @@ namespace testTableParser
 
                         var matchingScores = FindWithMatchingYCoordinate(player, scores);
 
+                        
                         var xxxxxxxxxxxxxxxxx = 42;
                     }
 
