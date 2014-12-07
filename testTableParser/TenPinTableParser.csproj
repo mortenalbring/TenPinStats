@@ -38,6 +38,8 @@
     <Compile Include="Ball.cs" />
     <Compile Include="BoundingBox.cs" />
     <Compile Include="Frame.cs" />
+    <Compile Include="FrameSet.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="PdfXmlItem.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace testTableParser
 {
-    public class Frame
+    public class FrameSet
     {
-        public string Player { get; set; }
-        public Ball Ball1 = new Ball();
-        public Ball Ball2 = new Ball();        
+        public string Player;
+        public List<Frame> Frames = new List<Frame>();
+        public int TotalScore;
     }
 }
