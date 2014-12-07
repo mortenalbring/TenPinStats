@@ -27,6 +27,8 @@ namespace testTableParser
                 //Find the headers
                 var tableHeaders = FindWithMatchingYCoordinate(xmlDocument, corner.BBox.y0).OrderBy(e => e.BBox.x0).ToList();
 
+                
+
                 var matchingX = FindWithMatchingXCoordinate(xmlDocument, corner.BBox.x0);
                 var orderedMatchingX = matchingX.OrderBy(e => e.BBox.y0).ToList();
 
@@ -39,15 +41,44 @@ namespace testTableParser
                         break;
                     }
 
+                
+
+                    
+
+
+
                     players.Add(ord);
                 }
 
                 players = players.OrderByDescending(e => e.BBox.y0).ToList();
 
-                
+                var listOfTen = new List<PdfXmlItem>();
+
+                foreach (var header in tableHeaders)
+                {
+                    if (header.Title == "10")
+                    {
+                        var matchingTen = FindWithMatchingXCoordinate(xmlDocument, header.BBox.x0);
+
+                        listOfTen.AddRange(matchingTen);
+                    }
+                }
+
 
                 foreach (var player in players)
                 {
+
+                    var matchingTen = FindWithMatchingXCoordinate(player, listOfTen);
+
+
+                    var xxxxx = 42;
+
+                }
+
+                
+                foreach (var player in players)
+                {
+                  
 
 
                     var game = new List<Frame>();
@@ -60,59 +91,12 @@ namespace testTableParser
 
                         var scores = FindWithMatchingXCoordinate(xmlDocument, header.BBox.x0,20);
 
-                        var orderedScores = scores.OrderBy(e => e.BBox.y0).ToList();
+                        var orderedScores = scores.OrderBy(e => e.BBox.y0).ToList();                        
 
                         var matchingScores = FindWithMatchingYCoordinate(player, scores);
 
-                        //If only one matching score is found, it's either the player name or a strike
-                        if (matchingScores.Count() == 1)
-                        {
-                            if (matchingScores[0].Title != player.Title)
-                            {
-                                //Strike!
-                                if (matchingScores[0].Title == "X")
-                                {
-                                    frame.Ball1.Score = 10;
-                                    frame.Ball2.Strike = true;
-                                }
-                            }
 
-                        }
 
-                        //If there are two matching scores, there are two scores
-                        if (matchingScores.Count() == 2)
-                        {
-                            //If the score card reads '-', it was a gutter ball
-                            if (matchingScores[0].Title == "-")
-                            {
-                                frame.Ball1.Score = 0;
-                            }                                
-                            else 
-                            {
-                                var framescore = Convert.ToInt32(matchingScores[0].Title);
-                                frame.Ball1.Score = framescore;
-                            }
-
-                            //Next ball
-                            //If the score card reads '-', it was a gutter ball
-                            if (matchingScores[1].Title == "-")
-                            {
-                                frame.Ball2.Score = 0;
-                            }
-                            else if (matchingScores[1].Title == "/")
-                            {
-                                frame.Ball2.Score = 0;
-                                frame.Ball2.Spare = true;
-                            }
-                            else
-                            {
-                                var framescore = Convert.ToInt32(matchingScores[1].Title);
-                                frame.Ball2.Score = framescore;
-                            }
-                                                        
-                        }
-
-                        game.Add(frame);
                         
                         var xxxxxxxxxxxxxxxxx = 42;
                     }
